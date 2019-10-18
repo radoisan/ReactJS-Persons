@@ -1,18 +1,59 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Person from './Person/Person';
 import './App.css';
 
+
 class App extends Component {
+  state = {
+    persons: [
+      {name: 'Rado', age: 28},
+      {name: 'Kiro', age: 33},
+      {name: 'Stef', age: 33}
+    ],
+    otherState: 'Some other state'
+  }
+
+  switchNameHandler = (newName) => {
+    //console.log('Was clicked!')
+    // DON'T DO THIS this.state.persons[0].name = 'Radoslav';
+    this.setState({
+      persons: [
+        {name: newName, age: 28},
+        {name: 'Kiril', age: 33},
+        {name: 'Stefania', age: 33}
+      ]
+    })
+  }
+  nameChangeHandler = (event) => {
+    this.setState({
+      persons: [
+        {name: 'Rado', age: 28},
+        {name: event.target.value, age: 33},
+        {name: 'Stefania', age: 33}
+      ]
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>Hi, I'm a React App</h1>
+        <p>This is really working!!!</p>
+
+        <button className="primary" onClick={()=> this.switchNameHandler('Radoslav...')}>Switch Name</button>
+
+        <Person
+        name={this.state.persons[0].name}
+        age={this.state.persons[0].age} />
+        <Person
+        name={this.state.persons[1].name}
+        age={this.state.persons[1].age}
+        click={this.switchNameHandler.bind(this, 'Radoslav!!')}
+        changed={this.nameChangeHandler}
+        >My Hobbies: Racing</Person>
+        <Person
+        name={this.state.persons[2].name}
+        age={this.state.persons[2].age} />
       </div>
     );
   }
