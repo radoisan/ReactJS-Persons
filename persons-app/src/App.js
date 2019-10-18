@@ -30,7 +30,14 @@ class App extends Component {
   }
 
   deletePersonHandler = (personIndex) => {
-    const persons = this.state.persons;
+    /* Two way to add state immutability, because obj and array 
+    are reference types, we need to copy the actual value, 
+    with which we wanna work with. It's more safety and it's 
+    good practice. First is with slice() method second is with
+    arr destructuring operator */
+    //const persons = this.state.persons.slice();
+
+    const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({persons: persons})
   }
