@@ -1,3 +1,39 @@
+Coverage of the task:
+1. Using create-react-app, understanding folder structure, understanding component basics, undrastanding JSX, JSX Restrictions.
+
+2. Creating functional component
+
+3. Working with component and using them.
+
+4. Outputing dynamic content.
+
+5. Working with props.
+
+6. Understanding the children property.
+
+7. Understanding and using State. Props and State.
+
+8. Handling Events with Methods.
+
+9. Manipulating the State.
+
+10. Function component Naming.
+
+11. Understanding and using useState() Hook for State Manipulation.
+
+12. Stateless vs Stateful Components.
+
+13. Passing Method Reference between Components.
+
+14. Adding Two Way Binding.
+
+15. Adding Styling and Stylesheets.
+
+16. Working with inline Style.
+
+17. 
+
+--------------------------------------------------------------------------------------------------------------------
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
