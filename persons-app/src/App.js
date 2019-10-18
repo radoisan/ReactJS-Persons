@@ -14,14 +14,26 @@ class App extends Component {
     showPersons: false
   }
 
-  nameChangeHandler = (event) => {
-    this.setState({
-      persons: [
-        {name: 'Rado', age: 28},
-        {name: event.target.value, age: 33},
-        {name: 'Stefania', age: 33}
-      ]
-    })
+  nameChangeHandler = ( event, id ) => {
+    // Fetching the position(index) of the name with which we wanna work.
+    const personIndex = this.state.persons.findIndex(p => {
+      return p.id === id;
+    });
+    // Making direct copy of the original object with which we wanna work.
+    const person = {
+      ...this.state.persons[personIndex]
+    };
+    // Another way of copying the object values. 
+    // const person = Object.assign({}, this.state.persons[personIndex]);
+    
+    // update person name
+    person.name = event.target.value;
+
+    //update the main array at current index
+    const persons = [...this.state.persons];
+    persons[personIndex] = person;
+
+    this.setState({persons: persons})
   }
 
   togglePersonsHandler = () => {
@@ -54,7 +66,8 @@ class App extends Component {
               click={() => this.deletePersonHandler(index)}
               name={person.name}
               age={person.age} 
-              key={person.id} />
+              key={person.id} 
+              changed={(event) => this.nameChangeHandler(event, person.id)} />
           })} 
         </div>
       );
