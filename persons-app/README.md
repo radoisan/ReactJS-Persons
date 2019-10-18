@@ -31,7 +31,7 @@ Coverage of the task:
 
 16. Working with inline Style.
 
-17. 
+17. Rendering Content Conditionally.
 
 --------------------------------------------------------------------------------------------------------------------
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
