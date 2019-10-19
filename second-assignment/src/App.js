@@ -10,19 +10,7 @@ class App extends Component {
   }
 
   changeListener = (event) => {
-    /*const wordIndex = this.state.word.findIndex(w => {
-      return w.words === word;
-    })
-
-    const word = {...this.state.words[wordIndex]};
-    words.word = event.target.value;
-
-    const words = [...this.state.words];
-    words = word;
-
-    this.setState({
-      words: words
-    })*/
+  
     this.setState({
       words: [
         {word: event.target.value}
