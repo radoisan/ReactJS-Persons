@@ -8,11 +8,11 @@ const char = (props) => {
         textAlign: 'center',
         margin: '16px',
         border: '1px solid black'
-    }
+    };
 
     return (
-        <div style={charStyle}>
-            <p>{props.char}</p>
+        <div style={charStyle} onClick={props.click} >
+            {props.char}
         </div>
     )
 }

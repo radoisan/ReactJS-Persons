@@ -5,34 +5,40 @@ import CharComponent from './CharComponent/CharComponent'
 
 class App extends Component {
 
-  state = {
-    words: [
-      {word: 'Hello'}
-    ],
+  state = { 
+    userInput: ''
   }
 
   changeListener = (event) => {
-    this.setState({
-      words: [
-        {word: event.target.value}
-      ]
-    })
+    this.setState({userInput: event.target.value})
+  }
+
+  deleteCharHandler = (charIndex) => {
+    const charArr = this.state.userInput.split('');
+    charArr.splice(charIndex, 1);
+    const updatedText = charArr.join();
+    this.setState({userInput: updatedText});
   }
 
   render() {
     
     let letter = (<div>
-      {this.state.words[0].word.split('').map(letters => {
-        return <CharComponent char={letters}/>
+      {this.state.userInput.split('').map((letters, index) => {
+        return <CharComponent 
+        char = {letters}
+        key={index}
+        click = {() => this.deleteCharHandler(index)}
+        />
+        
       })}
     </div>)
     
 
     return (
       <div className="App">
-        <input type="text" value={this.state.words[0].word} onChange={this.changeListener} />
-        <p>Text lenght: {this.state.words[0].word.length} </p> 
-        <ValidationComponent wordlen={this.state.words[0].word.length} />               
+        <input type="text" value={this.state.userInput} onChange={this.changeListener} />
+        <p>Text lenght: {this.state.userInput.length} </p> 
+        <ValidationComponent wordlen={this.state.userInput.length} />               
         {letter}
       </div>
     );
