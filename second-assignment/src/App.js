@@ -16,7 +16,7 @@ class App extends Component {
   deleteCharHandler = (charIndex) => {
     const charArr = this.state.userInput.split('');
     charArr.splice(charIndex, 1);
-    const updatedText = charArr.join();
+    const updatedText = charArr.join('');
     this.setState({userInput: updatedText});
   }
 
