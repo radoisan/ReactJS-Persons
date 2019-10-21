@@ -91,12 +91,21 @@ class App extends Component {
       // changed style dynamically
       style.backgroundColor = 'red';
     }
+    // Defined style classes, as an array, and use them with className property 
+    // we used join(' ') because we need to assign string to className not array
+    const classes = [];
+    if (this.state.persons.length <= 2){
+      classes.push('red')
+    }
+    if (this.state.persons.length <= 1){
+      classes.push('bold')
+    }
 
     return (
       <div className="App">
 
         <h1>Hi, I'm a React App</h1>
-        <p>This is really working!!!</p>
+        <p className={classes.join(' ')}>This is really working!!!</p>
 
         <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
         {persons}
