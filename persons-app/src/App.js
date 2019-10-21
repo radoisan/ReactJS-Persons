@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Person from './Person/Person';
 import './App.css';
+import Radium from 'radium';
 
 
 class App extends Component {
@@ -70,7 +71,11 @@ class App extends Component {
       textAlign: 'center',
       textDecoration: 'none',
       display: 'inline-block',
-      fontSize: '16px'
+      fontSize: '16px',
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'black'
+      }
     };
 
     let persons = null;
@@ -90,9 +95,13 @@ class App extends Component {
       );
       // changed style dynamically
       style.backgroundColor = 'red';
+      style[':hover'] = {
+        backgroundColor: 'salmon',
+        color: 'black'
+      }
     }
-    // Defined style classes, as an array, and use them with className property 
-    // we used join(' ') because we need to assign string to className not array
+    // Defined style classes, as an array, and we use them with className property 
+    // we used join(' ') because we need to pass string to className instead of array
     const classes = [];
     if (this.state.persons.length <= 2){
       classes.push('red')
@@ -114,4 +123,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);
