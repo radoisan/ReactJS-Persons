@@ -55,6 +55,23 @@ class App extends Component {
   }
 
   render() {
+    const style = {
+     /* backgroundColor: 'green',
+      color: 'white',
+      font: 'inherit',
+      border: '1px solid green',
+      padding: '8px',
+      cursor: 'pointer'
+    */
+      backgroundColor: '#4CAF50', 
+      border: 'none',
+      color: 'white',
+      padding: '15px 32px',
+      textAlign: 'center',
+      textDecoration: 'none',
+      display: 'inline-block',
+      fontSize: '16px'
+    };
 
     let persons = null;
 
@@ -71,6 +88,8 @@ class App extends Component {
           })} 
         </div>
       );
+      // changed style dynamically
+      style.backgroundColor = 'red';
     }
 
     return (
@@ -79,7 +98,7 @@ class App extends Component {
         <h1>Hi, I'm a React App</h1>
         <p>This is really working!!!</p>
 
-        <button className="primary" onClick={this.togglePersonsHandler}>Toggle Persons</button>
+        <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
         {persons}
       </div>
     );
