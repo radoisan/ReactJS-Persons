@@ -54,20 +54,8 @@ class App extends Component {
   }
 
   render() {
-    const style = {
-    
-      backgroundColor: '#4CAF50', 
-      border: 'none',
-      color: 'white',
-      padding: '15px 32px',
-      textAlign: 'center',
-      textDecoration: 'none',
-      display: 'inline-block',
-      fontSize: '16px',
-      
-    };
-
     let persons = null;
+    let btnClass = '';
 
     if(this.state.showPersons){
       persons = (
@@ -82,10 +70,9 @@ class App extends Component {
           })} 
         </div>
       );
-      // changed style dynamically
-      style.backgroundColor = 'red';
-      
+      btnClass = classes.Red
     }
+
     // Defined style classes, as an array, and we use them with className property 
     // we used join(' ') because we need to pass string to className instead of array
     const assignedClasses = [];
@@ -102,7 +89,9 @@ class App extends Component {
         <h1>Hi, I'm a React App</h1>
         <p className={assignedClasses.join(' ')}>This is really working!!!</p>
 
-        <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
+        <button className={btnClass}
+        onClick={this.togglePersonsHandler}>Toggle Persons</button>
+       
         {persons}
       </div>
     );
