@@ -6,7 +6,10 @@ const cockpit = (props) => {
     useEffect(() => {
       console.log('[Cockpit.js] useEffect')
       //Http request...
-    });  
+      setTimeout(()=>{
+        alert('Saved data to cloud'); 
+      },1000);
+    },[props.persons]);  
 
   
     // Defined style classes, as an array, and we use them with className property 
