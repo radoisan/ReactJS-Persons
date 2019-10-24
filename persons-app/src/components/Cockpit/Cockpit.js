@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import classes from './Cockpit.module.css';
 
 const cockpit = (props) => {
+    useEffect(() => {
+      console.log('[Cockpit.js] useEffect')
+      //Http request...
+    });  
+
+  
     // Defined style classes, as an array, and we use them with className property 
     // we used join(' ') because we need to pass string to className instead of array
     const assignedClasses = [];
