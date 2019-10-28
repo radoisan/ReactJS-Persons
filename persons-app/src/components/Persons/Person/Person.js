@@ -22,7 +22,7 @@ class Person extends Component {
         console.log('[Person.js] rendering...');
         return (
         <Aux>
-
+            {this.props.isAuth ? <p>Authenticated!</p> : <p>Please Log In</p>}
             <p onClick={this.props.click}>
                 I'm {this.props.name} and {this.props.age} years old
             </p>

@@ -21,7 +21,8 @@ class App extends Component {
     otherState: 'Some other state',
     showPersons: false,
     showCockpit: true,
-    changeCounter: 0
+    changeCounter: 0,
+    authenticated: false
   }
 
   static getDerivedStateFromProps(props, state){
@@ -72,7 +73,7 @@ class App extends Component {
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;  
     this.setState({showPersons: !doesShow});
-  }
+  };
 
   deletePersonHandler = (personIndex) => {
     /* Two way to add state immutability, because obj and array 
@@ -85,8 +86,12 @@ class App extends Component {
     const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({persons: persons})
-  }
+  };
 
+  loginHandler = () => {
+    this.setState({authenticated: true})
+  };
+  
   render() {
     console.log('[App.js] render')
 
@@ -96,7 +101,8 @@ class App extends Component {
       persons = <Persons 
             persons={this.state.persons}
             clicked={this.deletePersonHandler}
-            changed={this.nameChangeHandler} />;
+            changed={this.nameChangeHandler} 
+            isAuthenticated={this.state.authenticated} />;
     }
 
     return (
@@ -113,6 +119,7 @@ class App extends Component {
           showPersons={this.state.showPersons}
           personsLenght={this.state.persons.length} 
           clicked={this.togglePersonsHandler} 
+          login={this.loginHandler}
           />
         ):null }
         {persons}
